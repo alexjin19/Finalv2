@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { Audio } from 'expo-av';
 
 export default function App() {
-  const [myrecording, setRecording, playback, mysounduri] = React.useState();
+  const [myrecording, setRecording] = React.useState(null);
 
   async function startRecording() {
     try {
@@ -28,22 +28,23 @@ export default function App() {
     console.log('Stopping recording..');
     setRecording(undefined);
     await myrecording.stopAndUnloadAsync();
-    mysounduri = myrecording.getURI;
-    console.log('Recording stopped');
+    const mysounduri = myrecording.getURI();
+    console.log('Recording stopped', mysounduri);
   }
 
   async function playSound() {
+    const mysounduri = "file:///Users/alexanderjin/Library/Developer/CoreSimulator/Devices/3F86B385-4F45-4DC1-8771-D55C1AA89FAF/data/Containers/Data/Application/C8446092-AFA7-43BC-B622-633B14D4B621/Library/Caches/ExponentExperienceData/%2540anonymous%252FFinalv2-9c3c1782-436d-4a6b-9a6d-66e449e293cb/AV/recording-393227B1-A662-4F9E-8E67-F556A664ACFA.m4a"
     try {
-    const playback = await Audio.Sound.createAsync( { uri: mysounduri })
+    const {sound} = await Audio.Sound.createAsync( { uri: mysounduri })
     await Audio.setAudioModeAsync(
       { playsInSilentModeIOS: true }, 
       { shouldPlay: true }
     );
-    await playback.loadAsync();
-    setSound(playback);
+    // await playback.loadAsync();
+    // setSound(playback);
 
     console.log('Playing Sound');
-    await playback.playAsync();
+    await sound.playAsync();
 
     } catch (error) {
       console.error('an error occurred', error);
