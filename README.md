@@ -7,3 +7,5 @@ To run the app, go to your terminal and change directory to the directory that h
 Once this is complete, you should be able to interact with our app. To begin recording, simply click “start recording” and say whatever you want (no time limit). When you are done recording audio, click “stop recording”. When you want to hear your audio recording played back to you, click “Play Sound”. Make sure your volume is turned up (we made it so that silent mode does not matter!) and you should be able to hear your audio recording. Note: if you click play sound without creating an audio recording first, an error will pop up at the bottom of the app since a null object cannot be played (no recording). Feel free to make as many recordings as you want! The recordings automatically update to the most recent one whenever start/stop recording is pressed. 
 
 Link to our video: https://youtu.be/COndswJHP3w  
+
+Link to zip file: https://drive.google.com/file/d/1g94_PODJRkfIYNrW_wX8GBZ4XD87hlGR/view?usp=sharing 
